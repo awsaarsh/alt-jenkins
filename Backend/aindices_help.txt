@@ -1,0 +1,637 @@
+
+check for folder
+1. aindices_backend
+
+if it available then
+
+open cmd in current folder
+
+in cmd write
+
+>python -m venv myenv
+
+>python.exe -m pip install --upgrade pip
+
+>myenv\Scripts\activate
+
+it will show something like this
+
+(myenv) D:\ai>
+
+then write 
+
+>pip install -r req.txt
+
+then 
+
+>cd aindices_backend
+
+then it will be like this
+
+(myenv) D:\ai\aindices_backend>
+
+in this run this code
+>python manage.py makemigrations
+>python manage.py migrate
+>python manage.py runserver
+
+then it will show like this
+
+(myenv) D:\ai\aindices_backend>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 12, 2024 - 12:26:59
+Django version 5.0.4, using settings 'aindices.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+if this is correct then it is working...
+
+for admin login
+in chorme or any other browser write this
+
+http://127.0.0.1:8000/api/admin/login/?next=/admin/login
+
+username = admin
+password = admin
+
+this is admin user for giving permission for new user.
+
+try every api given in postman
+
+
+for checking in live
+http://35.175.167.210:8000/api/admin/
+username = admin
+password = admin
+
+wherever http://127.0.0.1:8000 is there put http://35.175.167.210:8000 and all other same to check in live url
+
+
+1. REGISTER API
+
+sample curl
+
+curl --location 'http://127.0.0.1:8000/api/register/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "first_name": "John",
+    "last_name": "Doe",
+    "company_name": "ACME Inc.",
+    "email": "john.doe1@example.com",
+    "password": "abcd",
+    "country": "USA",
+    "state": "California"
+}
+'
+
+sample file for postman
+
+POST
+http://localhost:8000/api/register/
+
+HEADER
+Content-Type application/json
+
+BODY
+Select raw
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "company_name": "ACME Inc.",
+    "email": "john.doe1@example.com",
+    "password": "abcd",
+    "country": "USA",
+    "state": "California"
+}
+
+Click Send
+
+Response 
+
+{"first_name":"John","last_name":"Doe","company_name":"ACME Inc.","email":"john.doe1@example.com","country":"USA","state":"California"}
+
+2. LOGIN ADMIN FOR PERMISSION
+
+go to admin http://127.0.0.1:8000/admin/login/?next=/admin/ 
+do login
+username = admin
+password = admin
+
+give permission 
+
+Users
+ 
+this is where we give permission to new users
+
+give permission to new user
+
+after this use login api
+
+3. LOGIN API FOR CLIENT
+
+curl --location 'http://127.0.0.1:8000/api/login/' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'username=john.doe@example.com' \
+--data-urlencode 'password=abc'
+
+POST
+
+http://localhost:8000/api/login/
+
+same header 
+
+Body
+select x-www-form-urlencoded
+write this in bulk edit
+
+username:user4@example.com
+password:user4
+
+send
+
+
+Response
+
+{
+    "token": "43dd7075f7afb86251354a49ae3e187a1a0d55fb",
+    "first_login": false
+}
+
+you will get token only after the admin has approved else you will get error message
+
+{
+    "error": "Invalid username or password"
+}
+
+
+
+
+4. LOGOUT API
+
+http://localhost:8000/api/logout/
+
+Select Headers
+
+Authorization Token paste the token here
+
+example
+
+Authorization Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+send for logout
+
+5. LOGOUT ALL API
+
+POST
+
+http://localhost:8000/api/logout-all-devices/
+
+Authorization Token paste the token here
+
+example
+
+Authorization: Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+Result
+
+{
+    "message": "Successfully logged out from all devices.",
+    "new_token": "b9aa405614906849b8c2eea473d57903109e6941"
+}
+
+if already done then 
+{
+    "detail": "Invalid token."
+}
+
+
+
+
+6. USER_DETAILS
+
+GET
+
+http://localhost:8000/api/user-details/
+
+Select Headers
+
+Authorization Token paste the token here
+
+example
+
+Authorization Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+You will get something like this as result
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "company_name": "ACME Inc.",
+    "email": "john.doe@example.com",
+    "country": "USA",
+    "state": "California"
+}
+
+
+
+
+7. USA 50 STATES
+GET
+http://localhost:8000//api/provinces-or-states/?country=USA
+
+
+Result
+{
+    "states": [
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+    ]
+}
+
+8. CANADA
+http://localhost:8000//api/provinces-or-states/?country=Canada
+
+Result
+{
+    "provinces": [
+        "Alberta",
+        "British Columbia",
+        "Manitoba",
+        "New Brunswick",
+        "Newfoundland and Labrador",
+        "Nova Scotia",
+        "Ontario",
+        "Prince Edward Island",
+        "Quebec",
+        "Saskatchewan",
+        "Northwest Territories",
+        "Nunavut",
+        "Yukon"
+    ]
+}
+
+8. PASSWORD RESET
+
+POST
+http://127.0.0.1:8000/api/password-reset/
+
+HEADER
+Content-Type application/json
+
+BODY
+Raw
+{
+    "email": "john.doe@example.com"
+}
+
+
+Response
+{
+    "message": "Password reset email sent."
+}
+
+
+9.	FIRM MANAGER FUND PROFILE CREATE
+
+POST
+http://127.0.0.1:8000/api/firm-manager-fund-profile/
+
+HEADER
+Content-Type application/json
+
+Authorization Token paste the token here
+
+example
+
+Authorization Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+BODY
+Raw
+{
+    "firm_type": "Type 1",
+    "years_established": 5,
+    "currency_managed": "USD",
+    "pe_main_firm_strategy": "Strategy 1",
+    "aum_cur_mn": 105,
+    "aum_usd_mn": 120.8,
+    "aum_eur_mn": 80.3
+}
+
+Send
+
+RESPONSE
+
+{
+    "id": 2,
+    "firm_type": "Type 1",
+    "years_established": 5,
+    "currency_managed": "USD",
+    "pe_main_firm_strategy": "Strategy 1",
+    "aum_cur_mn": "105.00",
+    "aum_usd_mn": "120.80",
+    "aum_eur_mn": "80.30"
+}
+
+
+10.	FIRM MANAGER FUND PROFILE DETAILS
+
+GET
+http://127.0.0.1:8000/api/firm-manager-fund-profile/
+
+HEADER
+Content-Type application/json
+
+Authorization Token paste the token here
+
+example
+
+Authorization Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+
+RESPONSE
+
+{
+    "id": 2,
+    "firm_type": "Type 1",
+    "years_established": 5,
+    "currency_managed": "USD",
+    "pe_main_firm_strategy": "Strategy 1",
+    "aum_cur_mn": "105.00",
+    "aum_usd_mn": "120.80",
+    "aum_eur_mn": "80.30"
+}
+
+
+11. FIRM MANAGER FUND PROFILE EDIT
+
+PUT
+http://127.0.0.1:8000/api/firm-manager-fund-profile/1/
+
+HEADER
+Content-Type application/json
+
+Authorization Token paste the token here
+
+example
+
+Authorization Token e1cc441ebe7a2e7713dbce11b6b7c27f9a222e4b
+
+
+BODY
+Raw
+{
+    "firm_type": "Type 1",
+    "years_established": 5,
+    "currency_managed": "USD",
+    "pe_main_firm_strategy": "Strategy 1",
+    "aum_cur_mn": 105,
+    "aum_usd_mn": 180,
+    "aum_eur_mn": 80.3
+}
+
+Send
+
+RESPONSE
+
+{
+    "id": 1,
+    "firm_type": "Type 1",
+    "years_established": 5,
+    "currency_managed": "USD",
+    "pe_main_firm_strategy": "Strategy 1",
+    "aum_cur_mn": "105.00",
+    "aum_usd_mn": "180.00",
+    "aum_eur_mn": "80.30"
+}
+
+
+12. CREATE ABOUT US
+
+METHOD = POST
+
+http://localhost:8000/api/about-us/create/
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+BODY
+
+RAW
+
+{
+    "title": "About Us",
+    "content": "Welcome to our websiae. Here is the information about us."
+}
+
+Send
+
+RESPONSE
+
+{
+    "title": "About Us",
+    "content": "Welcome to our websiae. Here is the information about us."
+}
+
+13. RETRIEVE ABOUT US
+
+METHOD = GET
+
+http://localhost:8000/api/about-us/info/
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+Send
+
+RESPONSE
+
+{
+    "content": "This is the update content for the About Us section."
+}
+
+14. UPDATE ABOUT US
+
+METHOD = PUT
+
+http://localhost:8000/api/about-us/info/
+
+HEADER
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+Send
+
+RESPONSE
+
+{
+    "content": "This is the update content for the About Us section."
+}
+
+
+15. CREATE CONTACT DETAILS
+
+METHOD = POST
+
+http://localhost:8000/api/contact-details/create/
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+BODY
+
+RAW
+
+{
+    "city": "New York",
+    "address": "123 Main St",
+    "state_country": "New York, USA",
+    "zip_code": "10001",
+    "website": "https://example.com",
+    "telephone": "+1234567890"
+}
+
+SEND
+
+RESPONSE
+
+{
+    "city": "New York",
+    "address": "123 Main St",
+    "state_country": "New York, USA",
+    "zip_code": "10001",
+    "website": "https://example.com",
+    "telephone": "+1234567890"
+}
+
+16. RETRIEVE CONTACT DETAILS
+
+METHOD = GET
+
+http://localhost:8000/api/contact-details
+
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+SEND
+
+RESPONSE
+
+{
+    "city": "New York",
+    "address": "123 Main St",
+    "state_country": "New York, USA",
+    "zip_code": "10001",
+    "website": "https://example.com",
+    "telephone": "+1234567890"
+}
+
+
+17. UPDATE CONTACT DETAILS
+
+METHOD = PUT
+
+http://localhost:8000/api/contact-details/update/
+
+HEADER
+
+Content-Type:application/json
+Authorization:Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9
+
+BODY
+
+RAW
+
+{
+    "city": "Los Angeles",
+    "address": "456 Elm St",
+    "state_country": "California, USA",
+    "zip_code": "90001",
+    "website": "https://newexample.com",
+    "telephone": "+0987654321"
+}
+
+SEND
+
+RESPONSE
+
+{
+    "city": "Los Angeles",
+    "address": "456 Elm St",
+    "state_country": "California, USA",
+    "zip_code": "90001",
+    "website": "https://newexample.com",
+    "telephone": "+0987654321"
+}
+
+
+
+
+#############################################
+if Proper Token is not sent then this response will come
+{
+    "detail": "Invalid token."
+}

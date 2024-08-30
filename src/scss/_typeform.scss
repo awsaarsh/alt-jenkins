@@ -1,0 +1,202 @@
+.fade-enter {
+    opacity: 0;
+    width: 100%;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+
+}
+
+.fade-exit {
+    opacity: 1;
+    width: 100%;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+}
+
+.performance-modal {
+    .modal-content {
+        background-color: #f3f3f3;
+    }
+
+    .performance-name {
+        display: flex;
+        width: 100%;
+        overflow-x: hidden;
+
+        >div {
+            width: 100%;
+            display: flex;
+        }
+    }
+}
+
+.step-out {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    /* top: 20%; */
+    height: calc(100vh - 96px);
+
+    ul {
+        margin-top: 1rem;
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        li {
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 1rem;
+            background-color: rgba(1, 66, 172, 0.1);
+            box-shadow: rgba(1, 66, 172, 0.6) 0px 0px 0px 1px inset;
+            color: rgb(1, 66, 172);
+            width: max-content;
+            display: flex;
+            min-width: 200px;
+
+            .option-number {
+                position: relative;
+                width: 24px;
+                min-width: 22px;
+                height: 24px;
+                font-size: 12px;
+                line-height: 16px;
+                font-family: sans-serif;
+                border-color: rgba(1, 66, 172, 0.6);
+                background-color: rgba(255, 255, 255, 0.8);
+                box-shadow: rgba(1, 66, 172, 0.6) 0px 0px 0px 1px inset;
+                color: rgb(1, 66, 172);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            .option {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+
+            .checkbox-content {
+                margin-left: auto;
+                margin-right: 0.5rem;
+                opacity: 0;
+            }
+
+            &:focus-visible {
+                .checkbox-content {
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+                background-color: rgba(1, 66, 172, 0.3);
+
+                .checkbox-content {
+                    opacity: 1;
+                }
+
+                .option-number {
+                    background-color: rgba(1, 66, 172, 1);
+                    color: white;
+                }
+            }
+
+            &.active {
+                .checkbox-content {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+
+    .ml-2 {
+        margin-left: 2rem;
+    }
+
+    .ml-1 {
+        margin-left: 1rem;
+    }
+
+    .btn {
+        position: relative;
+        font-family: inherit;
+        line-height: initial;
+        font-weight: 700;
+        cursor: pointer;
+        transition-duration: 0.1s;
+        transition-property: background-color, color, border-color, opacity, box-shadow;
+        transition-timing-function: ease-out;
+        outline: none;
+        border: 1px solid transparent;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px 0px;
+        padding-block: 6px;
+        padding-inline: 14px;
+        min-height: 40px;
+        background-color: rgb(1, 66, 172);
+        color: #ffffff;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: black;
+        }
+    }
+}
+
+.custom-first-box{
+    justify-content: start;
+    margin-top: 2rem;
+    position: relative;
+    ul{
+        padding-left:0px;
+            display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+
+        li{
+            width: 100%;
+        }
+    }
+
+    .option{
+        display: flex;
+        flex-direction: column;
+        width:calc(100% - 80px);
+        margin: 0px auto;
+
+        .f-name{
+            font-size: 1rem;
+        }
+        .list-of-detl{
+            font-size: 12px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            label{
+                justify-content: space-between;
+                width: 100%;
+                display: flex;
+            }
+        }
+    }
+}
+
+.modal-header{
+border-bottom: 1px solid #e2e2e2;
+padding-top: 1rem;
+}

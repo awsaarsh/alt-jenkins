@@ -1,0 +1,21 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "react-datepicker/dist/react-datepicker.css";
+@import 'form.scss';
+@import 'sidebar.scss';
+@import 'main.scss';
+@import 'header.scss';
+@import 'register.scss';
+@import 'login.scss';
+@import 'tree.scss';
+@import 'dashboard.scss';
+@import 'profile.scss';
+@import 'choose_hierarchy.scss';
+@import 'pagination.scss';
+@import 'tab.scss';
+@import 'Landing.scss';
+@import 'user_profile.scss';
+@import 'typeform.scss';
+
+body{
+    font-family: 'Nunito Sans';
+}

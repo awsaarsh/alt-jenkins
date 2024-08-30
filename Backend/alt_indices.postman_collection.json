@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "607cb3ff-d385-411d-90db-88143eae04bc",
+		"name": "alt_indices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31456361"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"company_name\": \"ACME Inc.\",\r\n    \"email\": \"john.doe1@example.com\",\r\n    \"password\": \"abcd\",\r\n    \"country\": \"USA\",\r\n    \"state\": \"California\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john.doe1@example.com\",\r\n    \"password\": \"abcd\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/logout/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userdetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 13fb06b9632df1319d3a3a53a00a4f3c0663ea04",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/user-details/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user-details",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/provinces-or-states/?country=USA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"",
+						"api",
+						"provinces-or-states",
+						""
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "USA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Canada",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Password Reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"john.doe1@example.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/password-reset/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"password-reset",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Firm Manager Profile Create Profile",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FIRM MANAGER FUND PROFILE DETAILS",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Photo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token ef6041fffbb697d873c6c5d75941f3ae979d326a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/MURUGANANAND/Pictures/Camera Roll/WIN_20190921_15_44_19_Pro.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/photo-upload/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"photo-upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Photo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/user/24/profile-picture/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"24",
+						"profile-picture",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Profile Photo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/profile-photo/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile-photo",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update About Us",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"About Us\",\r\n    \"content\": \"This is the updated content for the About Us section.\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/about-us/?Authorization=Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"about-us",
+						""
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create About Us",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"About Us\",\r\n    \"content\": \"Welcome to our websiae. Here is the information about us.\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/about-us/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"about-us",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve About Us",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/about-us/info/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"about-us",
+						"info",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Contact Details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"New York\",\r\n    \"address\": \"123 Main St\",\r\n    \"state_country\": \"New York, USA\",\r\n    \"zip_code\": \"10001\",\r\n    \"website\": \"https://example.com\",\r\n    \"telephone\": \"+1234567890\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/contact-details/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contact-details",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Contact details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/contact-details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contact-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Contact Details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 4d745deaf3cb7f0b181d766c1a475cd6da4649e9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"Los Angeles\",\r\n    \"address\": \"456 Elm St\",\r\n    \"state_country\": \"California, USA\",\r\n    \"zip_code\": \"90001\",\r\n    \"website\": \"https://newexample.com\",\r\n    \"telephone\": \"+0987654321\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/contact-details/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"contact-details",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
