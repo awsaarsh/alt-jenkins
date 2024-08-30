@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-niao7!^2a$uh4$#xktq255(sg**rqh2-%3c0gt6jj-7mq7yow3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '127.0.0.1','44.215.243.154']
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
@@ -133,6 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
